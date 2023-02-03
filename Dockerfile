@@ -12,6 +12,8 @@ COPY ./restore.sh /usr/local/bin/restore.sh
 RUN chmod +x /usr/local/bin/restore.sh
 
 ENV S3_HOST="${S3_HOST:-https://s3.filebase.com}"
+ENV database__client=sqlite3
+ENV database__connection__filename=content/data/ghost.db
 
 ## run script
 CMD ["run.sh"]
