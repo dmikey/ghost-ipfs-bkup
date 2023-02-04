@@ -16,5 +16,5 @@ jobs:
       - name: build
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
-          docker build . --tag ghcr.io/${{ github.repository }}::${{ steps.vars.outputs.tag_name }}
+          docker build . --tag ghcr.io/${{ github.repository }}:${{ steps.vars.outputs.tag_name }}
           docker push ghcr.io/${{ github.repository }}:${{ steps.vars.outputs.tag_name }}
